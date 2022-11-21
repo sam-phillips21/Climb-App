@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Climb
+from ..models.climb import Climb
 from crag.serializers import ClimbSerializer
 # # Create your views here.
 class ClimbsView(APIView):
@@ -38,6 +38,6 @@ class ClimbDetailView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
-        climb = get_object_or_404(climb, pk=pk)
-        climb.delete()
+        climb = get_object_or_404(Climb, pk=pk)
+        Climb.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

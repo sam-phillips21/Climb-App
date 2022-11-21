@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('locations/', include('place.urls')),
     path('climbs/', include('crag.urls')),
+    path('comments/', include('crag.urls')),
 
 ]
